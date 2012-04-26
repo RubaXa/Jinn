@@ -126,7 +126,7 @@
 						_pid	= setInterval(_draw, ~~(1000/_opts.fps +.5))
 					}
 
-					if( val === null ){
+					if( val === null || val === undef ){
 						_setIcon(_opts['src']);
 					} else {
 						_draw();
