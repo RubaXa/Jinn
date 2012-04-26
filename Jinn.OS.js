@@ -84,6 +84,10 @@
 
 		Notify.prototype = {
 
+			'hasRight': function (){
+				return	!!this['_tpl'];
+			},
+
 			'show': function (){
 				if( this.el ){
 					_queue.push(this);
