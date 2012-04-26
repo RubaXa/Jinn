@@ -12,6 +12,8 @@
 	var api = Jinn['API']['ext']({
 		'_tpl': '#JinnOSTpl',
 
+		'_opt': { 'title': '', 'text': '' },
+
 		'tpl': function (tpl){
 			this['_tpl'] = tpl;
 			return	this;
