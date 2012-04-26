@@ -60,7 +60,7 @@
 				this.el = document.createElement('div');
 
 				this.el.innerHTML = (tpl.charAt(0) == '#' ? document.getElementById(tpl.substr(1)).innerHTML : tpl).replace(_rvar, function (a, key){
-					return	(new Function('notify', 'try{return '+key+'}catch(e){return""}'))(notify);
+					return	(new Function('notify,v,u', 'try{v='+key+'}catch(e){} return v===u?"":v'))(notify);
 				});
 
 				document.body.appendChild(this.el);
