@@ -120,7 +120,7 @@
 
 					clearInterval(_pid);
 
-					if( val === null || !_opts.fps ){
+					if( val === null || val === undef || !_opts.fps ){
 						_frame	= 0;
 					} else {
 						_pid	= setInterval(_draw, ~~(1000/_opts.fps +.5))
