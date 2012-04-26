@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Jinn :: example</title>
+
+	<link rel="icon" type="image/png" href="./jinn-16x16.png">
+	<link rel="stylesheet" type="text/css" href="./jinn.css">
+
+	<script src="./Jinn.min.js"></script>
+
+</head>
+<body>
+
+	<script id="JinnOSTpl" type="text/x-jinn-tpl">
+		<div class="jinn">
+			<table width="100%" height="100%">
+				<tr>
+					<td class="jinn__icon"><img src="{{notify.icon}}"/></td>
+					<td>
+						<div class="jinn__title">{{notify.title.toUpperCase()}}</div>
+						<div class="jinn__text">{{notify.text}}</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</script>
+
+	<div>
+		<input id="username" value="RubaXa" name="username" />
+		<button id="ClickMe">Click me!</button>
+	</div>
+
+	<div>
+		<input id="bubble" value="" type="text" name="bubble" />
+		<button id="setBubble">set bubble</button>
+		<button id="resetBubble">reset</button>
+	</div>
+
+	<img id="Icon"/>
+
+	<script>
+		(function ($){
+			var text = [
+				'What would you like?',
+				'Yes, Sir?',
+				'I hear and obey.',
+				'As you wish.'
+			];
+
+			$('#bubble').val(~~(Math.random()*100+1));
+
+
+			$('#setBubble').on('click', function (){
+				Jinn.bubble($('#bubble').val());
+				$('#bubble').val(~~(Math.random()*100+1));
+			});
+
+
+			$('#resetBubble').on('click', function (){
+				Jinn.bubble('reset');
+			});
+
+
+			$('#ClickMe').on('click', function (){
+				Jinn.scope('OS')
+					.tpl('#JinnOSTpl')
+					.opt({ icon: './jinn-32x32.png', delay: 3 })
+				;
+
+				Jinn.say({
+					  title: 'Hello, '+ $('#username').val() +'!'
+					, text: text[Math.round(Math.random() * (text.length-1))]
+				});
+			});
+		})((function (undef){
+
+			function $(id){
+				if( this instanceof $ ){
+					this[0] = document.getElementById(id.replace('#', ''));
+				}
+				else {
+					return	new $(id);
+				}
+			}
+
+			$.prototype = {
+				constructor: $,
+				on: function (name, fn){
+					if( this[0] ){
+						var on = this[0].addEventListener ? '' : 'on';
+						this[0][on ? 'attachEvent' : 'addEventListener'](on + name, fn, false);
+					}
+
+					return	this;
+				},
+				val: function (val){
+					if( val === undef ){
+						return	this[0].value;
+					}
+					this[0].value = val;
+					return	this;
+				}
+			};
+
+			return	$;
+		})());
+	</script>
+
+</body>
+</html>
