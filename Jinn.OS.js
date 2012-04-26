@@ -12,7 +12,7 @@
 	var api = Jinn['API']['ext']({
 		'_tpl': '#JinnOSTpl',
 
-		'_opt': { 'title': '', 'text': '' },
+		'_opts': { 'title': '', 'text': '' },
 
 		'tpl': function (tpl){
 			this['_tpl'] = tpl;
@@ -20,6 +20,10 @@
 		},
 
 		'add': function (notify){
+			if( typeof notify == 'string' ){
+				notify = { title: notify };
+			}
+
 			this['_ext'](notify);
 
 			this['access'](function (){

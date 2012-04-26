@@ -102,7 +102,7 @@
 		'NOT_ALLOWED': 1,
 		'DENIED': 2,
 
-		_opts: {},
+		'_opts': {},
 
 
 		/**
@@ -135,7 +135,7 @@
 		 * @return {*}
 		 */
 		'_ext': function (obj){
-			for( var key in this._opts ) if( obj[key] === undef ) obj[key] = this._opts[key];
+			for( var key in this['_opts'] ) if( obj[key] === undef ) obj[key] = this['_opts'][key];
 			return	obj;
 		},
 
@@ -151,13 +151,13 @@
 		'opt': function (key, val){
 			var ret = this;
 			if( val !== undef ){
-				ret._opts[key] = val;
+				ret['_opts'][key] = val;
 			}
 			else if( typeof key == 'object' ){
-				for( val in key ) ret._opts[val] = key[val];
+				for( val in key ) ret['_opts'][val] = key[val];
 			}
 			else {
-				ret	= ret._opts[key];
+				ret	= ret['_opts'][key];
 			}
 
 			return	ret;
