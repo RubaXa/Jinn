@@ -62,12 +62,13 @@
 			});
 
 
-			$('#ClickMe').on('click', function (){
-				Jinn.scope('OS')
+			Jinn.scope('OS')
 					.tpl('#JinnOSTpl')
 					.opt({ icon: './jinn-32x32.png', delay: 3 })
-				;
+			;
 
+
+			$('#ClickMe').on('click', function (){
 				Jinn.say({
 					  title: 'Hello, '+ $('#username').val() +'!'
 					, text: text[Math.round(Math.random() * (text.length-1))]

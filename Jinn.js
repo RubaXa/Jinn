@@ -112,7 +112,7 @@
 		 * @return {Number}
 		 */
 		'_check': function (){
-			return this.ALLOWED;
+			return this['ALLOWED'];
 		},
 
 

@@ -84,10 +84,6 @@
 
 		Notify.prototype = {
 
-			'hasRight': function (){
-				return	!!this['_tpl'];
-			},
-
 			'show': function (){
 				if( this.el ){
 					_queue.push(this);
@@ -116,6 +112,10 @@
 
 
 		api['methods']({
+			'hasRight': function (){
+				return	!!this['_tpl'];
+			},
+
 			'_create': function (notify){
 				return	new Notify(this['_tpl'], notify);
 			}
