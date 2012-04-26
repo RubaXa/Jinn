@@ -8,6 +8,7 @@ Notifications center
 * Dynamic favicon + custom [shape](#shape) (FF, Chrome, Opera)
 * Not need jQuery
 * Small size 2.6KB (minified + gzipped)
+* [Example](http://rubaxa.org/?Jinn)
 
 
 
