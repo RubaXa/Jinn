@@ -137,6 +137,9 @@ Jinn.store('key', null);
 ```
 
 
+-------------------------------------------
+
+
 <a name="extensibility"></a>
 ## High leve extensibility
 ```js
