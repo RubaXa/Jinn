@@ -212,15 +212,16 @@ Jinn
 	.scope('user-notify')
 		.bubble(7)
 		.end()
-	.access(function (){
-		Jinn
-			.scope('menu')
-				.bubble('news', 5)
-				.bubble('messages', 3)
-				.end()
-			.say('Hi!')
-		;
-	})
+	scope('menu')
+		.access(function (){
+			Jinn
+				.scope('menu')
+					.bubble('news', 5)
+					.bubble('messages', 3)
+					.end()
+				.say('Hi!')
+			;
+		})
 ;
 ```
 
