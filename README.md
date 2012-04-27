@@ -1,7 +1,5 @@
 ![Jinn Logo](https://github.com/RubaXa/Jinn/raw/master/jinn-32x32.png)
 
-Notifications center
-
 
 ## Features
 * Notifications API (only Chrome) + fallback to [layer](#layer) (IE7+, FF, Opera, Safari)
