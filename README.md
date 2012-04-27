@@ -27,21 +27,24 @@ Jinn.scope('OS')
 Jinn.scope('OS').tpl(null);
 
 
-// Create notify
-var notify = Jinn.say({
-	  icon: '...'
-	, title: '...'
-	, text: '...'
-	, delay: 0
+// Check permissions
+Jinn.access(function (){
+	// Create notify
+	var notify = Jinn.say({
+		  icon: '...'
+		, title: '...'
+		, text: '...'
+		, delay: 0
+	});
+
+
+	// Close notify
+	notify.cancel();
+
+
+	// Short
+	Jinn.say('...'); // equal Jinn.say({ title: '...' });
 });
-
-
-// Close notify
-notify.cancel();
-
-
-// Short
-Jinn.say('...'); // equal Jinn.say({ title: '...' });
 ```
 
 
