@@ -65,7 +65,7 @@
 	 * @return {Function}
 	 */
 	api['ext'] = function (methods){
-		var New = function (api){ this._api = api; }, name;
+		var New = function (){ this.__lego.apply(this, arguments); }, name;
 
 		F.prototype = this['fn'];
 		New.prototype = New['fn'] = new F;
@@ -103,6 +103,13 @@
 		'DENIED': 2,
 
 		'_opts': {},
+
+
+		/**
+		 * Lego
+		 * @constructor
+		 */
+		'__lego': F,
 
 
 		/**
@@ -195,12 +202,11 @@
 
 
 		'add': F,
-		'remove': F,
-
 		'say': function (){ return this.add.apply(this, arguments) },
-		'unsay': function (){ return this.remove.apply(this, arguments) },
 
-		'bubble': function (){}
+		'bubble': function (){},
+
+		'end': function (){ return Jinn; }
 	};
 
 
@@ -314,7 +320,7 @@
 			return	Jinn;
 		}
 
-	}, _jinn = 'bubble access add remove say unsay'.split(' '), i = _jinn.length;
+	}, _jinn = 'bubble access add say'.split(' '), i = _jinn.length;
 
 
 
