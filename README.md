@@ -1,4 +1,4 @@
-![Jinn Logo](/jinn-32x32.png)
+![Jinn Logo](https://github.com/RubaXa/Jinn/raw/master/jinn-32x32.png)
 
 Notifications center
 
