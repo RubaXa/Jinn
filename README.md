@@ -96,7 +96,7 @@ Jinn.bubble('reset');
 
 
 <a name="shape"></a>
-## Favicon bubble shape
+### Favicon bubble shape
 ```js
 /**
  * @param	{CanvasContext}		ctx
@@ -227,7 +227,11 @@ Jinn
 ```
 
 
-## Browser detect
+-------------------------------------------
+
+
+
+### Browser detect
 ```js
 Jinn.webkit;
 Jinn.chrome;
