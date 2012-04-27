@@ -65,7 +65,7 @@
 	 * @return {Function}
 	 */
 	api['ext'] = function (methods){
-		var New = function (){ this.__lego.apply(this, arguments); }, name;
+		var New = function (){ this['__lego'].apply(this, arguments); }, name;
 
 		F.prototype = this['fn'];
 		New.prototype = New['fn'] = new F;
