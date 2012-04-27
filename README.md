@@ -5,8 +5,8 @@
 * Notifications API (only Chrome) + fallback to [layer](#layer) (IE7+, FF, Opera, Safari)
 * Dynamic [favicon](#favicon) + custom [shape](#shape) (FF, Chrome, Opera)
 * [LocalStorage](#LocalStorage) (IE8+, FF, Chrome, Safari, Opera 11.6+)
-* Small size 2.6KB (minified + gzipped)
 * High level [extensibility](#extensibility)
+* Small size 2.6KB (minified + gzipped)
 * No jQuery
 * See [example](http://rubaxa.org/?Jinn)
 
