@@ -62,7 +62,9 @@
 			});
 
 
-			Jinn.scope('OS')
+			Jinn
+				.bubble({ fps: 2, iconW: 13, iconH: 13 })
+				.scope('OS')
 					.tpl('#JinnOSTpl')
 					.opt({ icon: './jinn-32x32.png', delay: 3 })
 			;

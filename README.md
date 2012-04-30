@@ -6,7 +6,8 @@
 * Dynamic [favicon](#favicon) + custom [shape](#shape) (FF, Chrome, Opera)
 * [LocalStorage](#LocalStorage) (IE8+, FF, Chrome, Safari, Opera 11.6+)
 * High level [extensibility](#extensibility)
-* Small size 2.6KB (minified + gzipped)
+* Support RequireJS
+* Small size ~3KB (minified + gzipped)
 * No jQuery
 * See [example](http://rubaxa.org/?Jinn)
 
