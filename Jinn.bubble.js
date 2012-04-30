@@ -22,24 +22,12 @@
 
 	// Default options
 		_opts = {
-			  val:		_val
-			, fps:		2
-			, iconX:	0
-			, iconY:	0
-			, iconW:	13
-			, iconH:	13
-		},
-
-
-		/**
-		 * Degrees to radians
-		 *
-		 * @private
-		 * @param	{Number}	deg
-		 * @return	{Number}
-		 */
-		_rad = function (deg){
-			return	Math.PI/180 * deg;
+			  'val':	_val
+			, 'fps':	2
+			, 'iconX':	0
+			, 'iconY':	0
+			, 'iconW':	16
+			, 'iconH':	16
 		},
 
 
@@ -70,9 +58,9 @@
 			_links(function (node){ node.parentNode.removeChild(node); });
 
 			var link = document.createElement('link');
-			link.rel = 'icon';
-			link.type = 'image/png';
-			link.href = src;
+			link.rel	= 'icon';
+			link.type	= 'image/png';
+			link.href	= src;
 			document.getElementsByTagName('head')[0].appendChild(link);
 		},
 
@@ -95,7 +83,7 @@
 				_canvas.height = 16;
 
 				// Load favicon
-				_img.src = _opts.src;
+				_img.src = _opts['src'];
 				_img.onload = function(){
 					function _draw(){
 						// Get canvas context
@@ -105,7 +93,7 @@
 						ctx.clearRect(0, 0, 16, 16);
 
 						// Drop favicon
-						ctx.drawImage(_img, 0, 0, _img.width, _img.height, _opts.iconX, _opts.iconY, _opts.iconW, _opts.iconH);
+						ctx.drawImage(_img, 0, 0, _img.width, _img.height, _opts['iconX'], _opts['iconY'], _opts['iconW'], _opts['iconH']);
 
 						// Draw bubble shape
 						_opts.shape(ctx, val, _frame, _opts);
@@ -113,17 +101,17 @@
 						// Set new favicon
 						_setIcon(_canvas.toDataURL());
 
-						if( _opts.fps <= ++_frame ){
+						if( _opts['fps'] <= ++_frame ){
 							_frame = 0;
 						}
 					}
 
 					clearInterval(_pid);
 
-					if( val === null || val === undef || !_opts.fps ){
+					if( val === null || val === undef || !_opts['fps'] ){
 						_frame	= 0;
 					} else {
-						_pid	= setInterval(_draw, ~~(1000/_opts.fps +.5))
+						_pid	= setInterval(_draw, ~~(1000/_opts['fps'] +.5))
 					}
 
 					if( val === null || val === undef ){
@@ -313,8 +301,6 @@
 	 * @return {Jinn}
 	 */
 	Jinn.scope('OS')['bubble'] = function (name, val){
-		var ret = this;
-
 		if( typeof name == 'object' && name !== null ){
 			// Set options
 			api['opt'](name);
@@ -328,7 +314,7 @@
 			api.set(name);
 		}
 
-		return	ret;
+		return	Jinn;
 	};
 
 
