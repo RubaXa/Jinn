@@ -26,17 +26,15 @@
 
 			this['_ext'](notify);
 
-			this['access'](function (){
-				var Notify = this['_create'](notify);
+			var Notify = this['_create'](notify);
 
-				Notify.show();
+			Notify.show();
 
-				if( notify['delay'] ){
-					setTimeout(function (){ Notify.cancel(); }, notify['delay'] * 1000);
-				}
+			if( notify['delay'] ){
+				setTimeout(function (){ Notify.cancel(); }, notify['delay'] * 1000);
+			}
 
-				return	Notify;
-			});
+			return	Notify;
 		}
 	});
 
@@ -107,7 +105,9 @@
 					this.el.parentNode.removeChild(this.el);
 					this.el = null;
 				}
-			}
+			},
+
+			'onclick': function (){}
 		};
 
 
