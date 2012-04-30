@@ -1,10 +1,9 @@
-/**
- * @build	Jinn, Jinn.OS, Jinn.bubble
+/**!
+ * Jinn -- Notifications center
+ * https://github.com/RubaXa/Jinn#readme
  *
- * @param	{Window}	window
- * @param	{Document}	document
- * @param	[undef]
- *
+ * @author	RubaXa	<trash@rubaxa.org>
+ * @build	Jinn.OS, Jinn.bubble
  * @example
  * 	Jinn
  * 		.bubble(10)
@@ -12,7 +11,17 @@
  * 		.scope('menu')
  * 			.bubble(5)
  * 			.say({ ... })
+ * 		.store('key', '...') // set
  * 	;
+ *
+ * 	var val = Jinn.store('key'); // get
+ * 	Jinn.store('key', null); // remove
+ */
+
+/**
+ * @param	{Window}	window
+ * @param	{Document}	document
+ * @param	[undef]
  */
 (function (window, document, undef){
 	'use strict';
@@ -320,15 +329,15 @@
 			return	Jinn;
 		}
 
-	}, _jinn = 'bubble access add say'.split(' '), i = _jinn.length;
+	}, _jinn = 'access bubble add say'.split(' '), i = _jinn.length;
 
 
 
 	// Define short methods
 	while( i-- ) (function (name){
 		Jinn[name] = function (){
-			var scope = Jinn.scope();
-			return	scope[name].apply(scope, arguments);
+			var scope = Jinn.scope(), ret = scope[name].apply(scope, arguments);
+			return	ret === scope ? Jinn : ret;
 		};
 	})(_jinn[i]);
 
@@ -380,18 +389,18 @@
 
 	// Detect browser
 	Jinn[(
-		   _agent.match(/webkit/i)
-		|| _agent.match(/opera/i)
-		|| _agent.match(/msie/i)
-		|| _agent.indexOf('compatible') < 0 && _agent.match(/mozilla/i)
+		   _agent.match(/webkit/)
+		|| _agent.match(/opera/)
+		|| _agent.match(/msie/)
+		|| _agent.indexOf('compatible') < 0 && _agent.match(/mozilla/)
 		|| []
 	)[0]] = true;
 
 
 	/** @namespace Jinn.webkit */
-	if( Jinn.webkit ){
+	if( Jinn['webkit'] ){
 		// Detail detect
-		Jinn[(_agent.match(/chrome/i) || _agent.match(/safari/i) || [])[0]] = true;
+		Jinn[(_agent.match(/chrome/) || _agent.match(/safari/) || [])[0]] = true;
 	}
 
 
