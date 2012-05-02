@@ -14,6 +14,7 @@
  * 		.store('key', '...') // set
  * 	;
  *
+ *  // Jinn.access -- should be invoked on user action
  * 	Jinn.access(function (){
  * 		var notify = Jinn.say({ icon: '..', title: '...', text: '...' });
  * 		notify.onclick = function (){   };
@@ -22,6 +23,7 @@
  * 	var val = Jinn.store('key'); // get
  * 	Jinn.store('key', null); // remove
  */
+
 
 /**
  * @param	{Window}	window

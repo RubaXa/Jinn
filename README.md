@@ -12,6 +12,15 @@
 * See [example](http://rubaxa.org/?Jinn)
 
 
+### WARNING
+```js
+document.addEventListener('click', function (){
+	Jinn.access(function (){
+		// This method should be invoked on user action
+	});
+}, false);
+```
+
 
 ```js
 // Settings notifications
