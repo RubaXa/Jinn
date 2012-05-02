@@ -49,8 +49,9 @@ Jinn.access(function (){
 
 
 	// On click
-	notify.onclick = function (){
+	notify.onclick = function (evt){
 		window.focus();
+		evt.target.cancel();
 	};
 
 

@@ -12,7 +12,7 @@
 	var api = Jinn['API']['ext']({
 		'_tpl': '#JinnOSTpl',
 
-		'_opts': { 'title': '', 'text': '' },
+		'_opts': { 'title': '', 'text': '', 'delay': 60 },
 
 		'tpl': function (tpl){
 			this['_tpl'] = tpl;
@@ -94,7 +94,7 @@
 
 					Notify.redraw();
 					_this.el.onclick = function (){
-						_this['onclick']();
+						_this['onclick'].call(_this, { type: 'click', target: _this, currentTarget: _this });
 					};
 				}
 			},

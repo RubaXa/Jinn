@@ -336,7 +336,7 @@
 			return	Jinn;
 		}
 
-	}, _jinn = 'access bubble add say'.split(' '), i = _jinn.length;
+	}, _jinn = 'hasRight access bubble add say'.split(' '), i = _jinn.length;
 
 
 
