@@ -71,9 +71,11 @@
 
 
 			$('#ClickMe').on('click', function (){
-				Jinn.say({
-					  title: 'Hello, '+ $('#username').val() +'!'
-					, text: text[Math.round(Math.random() * (text.length-1))]
+				Jinn.access(function (){
+					Jinn.say({
+						  title: 'Hello, '+ $('#username').val() +'!'
+						, text: text[Math.round(Math.random() * (text.length-1))]
+					});
 				});
 			});
 		})((function (undef){

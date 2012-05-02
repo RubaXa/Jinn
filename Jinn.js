@@ -5,14 +5,19 @@
  * @author	RubaXa	<trash@rubaxa.org>
  * @build	Jinn.OS, Jinn.bubble
  * @example
+ *
  * 	Jinn
  * 		.bubble(10)
- * 		.say({ icon: '..', title: '...', text: '...' })
  * 		.scope('menu')
  * 			.bubble(5)
  * 			.say({ ... })
  * 		.store('key', '...') // set
  * 	;
+ *
+ * 	Jinn.access(function (){
+ * 		var notify = Jinn.say({ icon: '..', title: '...', text: '...' });
+ * 		notify.onclick = function (){   };
+ * 	});
  *
  * 	var val = Jinn.store('key'); // get
  * 	Jinn.store('key', null); // remove

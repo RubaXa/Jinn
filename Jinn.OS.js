@@ -84,14 +84,18 @@
 
 			'show': function (){
 				if( this.el ){
-					_queue.push(this);
+					var _this = this, style = _this.el.style;
 
-					var style = this.el.style;
+					_queue.push(_this);
+
 					style.right	= '5px';
 					style.position	= 'fixed';
 					style.display	= 'block';
 
 					Notify.redraw();
+					_this.el.onclick = function (){
+						_this['onclick']();
+					};
 				}
 			},
 
@@ -102,6 +106,7 @@
 						Notify.redraw();
 					}
 
+					this.el.onclick = null;
 					this.el.parentNode.removeChild(this.el);
 					this.el = null;
 				}
