@@ -36,7 +36,6 @@
 	var
 		  F = function (){} // dymmy function
 		, api = function (api){ this._api = api; } // interface class
-		, addEventListener = 'addEventListener'
 
 		, _agent	= navigator.userAgent.toLowerCase()
 
@@ -216,6 +215,14 @@
 			return this['access']() == this['ALLOWED'];
 		},
 
+		/**
+		 * Has access denied
+		 *
+		 * @return	{Boolean}
+		 */
+		'hasAccessDenied': function (){
+			return	this['access']() == this['DENIED'];
+		},
 
 		'add': F,
 		'say': function (){ return this.add.apply(this, arguments) },
@@ -329,14 +336,12 @@
 		 */
 		addEvent: function (node, name, fn){
 			if( node ){
-				var on = node[addEventListener] ? '' : 'on';
-				node[on ? 'attachEvent' : addEventListener](on + name, fn, false);
+				var on = node.addEventListener ? '' : 'on';
+				node[on ? 'attachEvent' : 'addEventListener'](on + name, fn, false);
 			}
-
-			return	Jinn;
 		}
 
-	}, _jinn = 'hasRight access bubble add say'.split(' '), i = _jinn.length;
+	}, _jinn = 'hasRight hasAccessDenied access bubble add say'.split(' '), i = _jinn.length;
 
 
 
