@@ -10,6 +10,8 @@
 	var
 		F = function (){}, // dummy function
 
+		beforeUnload = 'beforeunload',
+
 		_ricon = /\bicon\b/,
 		_rdata = /^data/,
 
@@ -296,9 +298,9 @@
 	/**
 	 * Bubble interface
 	 *
-	 * @param {*}  name
-	 * @param {*}  [val]
-	 * @return {Jinn}
+	 * @param	{*}	name
+	 * @param	{*}	[val]
+	 * @return	{Jinn}
 	 */
 	Jinn.scope('OS')['bubble'] = function (name, val){
 		if( typeof name == 'object' && name !== null ){
