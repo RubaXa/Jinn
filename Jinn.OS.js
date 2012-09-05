@@ -50,7 +50,12 @@
 			},
 
 			'_create': function (notify){
-				return	Notifications.createNotification(notify['icon'], notify['title'], notify['text']);
+				try {
+					var notify = Notifications.createNotification(notify['icon'], notify['title'], notify['text'])
+				} catch (err){
+					throw "Notifications.createNotification — access denied";
+				}
+				return	notify;
 			}
 		});
 	}
