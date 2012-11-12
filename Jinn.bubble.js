@@ -67,7 +67,12 @@
 		},
 
 		_canvas = document.createElement('canvas'),
-		_support = _canvas.toDataURL && !!~_canvas.toDataURL('image/png').indexOf('data:image/png'),
+		_support = (function (){
+			try {
+				return	!!~_canvas.toDataURL('image/png').indexOf('data:image/png')
+			}
+			catch (e){}
+		})(),
 
 
 		/**

@@ -66,13 +66,21 @@
 			_queue = [],
 
 			Notify = function (tpl, notify){
-				this.el = document.createElement('div');
+				if( /^#/.test(tpl) ){
+					tpl = document.getElementById(tpl.substr(1));
+					if( tpl ){
+						tpl	= tpl.innerHTML;
+					}
+				}
 
-				this.el.innerHTML = (tpl.charAt(0) == '#' ? document.getElementById(tpl.substr(1)).innerHTML : tpl).replace(_rvar, function (a, key){
-					return	(new Function('notify,v,u', 'try{v='+key+'}catch(e){} return v===u?"":v'))(notify);
-				});
+				if( tpl ){
+					this.el = document.createElement('div');
+					this.el.innerHTML = tpl.replace(_rvar, function (a, key){
+						return	(new Function('notify,v,u', 'try{v='+key+'}catch(e){} return v===u?"":v'))(notify);
+					});
 
-				document.body.appendChild(this.el);
+					document.body.appendChild(this.el);
+				}
 			}
 		;
 
