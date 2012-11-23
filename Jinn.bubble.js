@@ -8,11 +8,9 @@
 	'use strict';
 
 	var
-		F = function (){}, // dummy function
+		noop = function (){}, // dummy function
 
-		beforeUnload = 'beforeunload',
-
-		_ricon = /\bicon\b/,
+		_ricon = /(^|\s)icon(\s|$)/,	// regexp favicon
 		_rdata = /^data/,
 
 		_pid, // animation pid
@@ -22,7 +20,7 @@
 		_img = new Image,
 		_frame = 0,
 
-	// Default options
+		// Default options
 		_opts = {
 			  'val':	_val
 			, 'fps':	2
@@ -182,7 +180,7 @@
 		 * @private
 		 */
 		init: function (){
-			api.init = F;
+			api.init = noop;
 			api.ready = 1;
 
 			var icon = _links(function (){ return true; });
