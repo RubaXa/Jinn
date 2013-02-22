@@ -380,22 +380,25 @@
 
 
 	// Jinn storage
-	(function (store, o){
+	(function (){
+		var storage, obj = {};
+		try { storage = window.localStorage; } catch (e){ }
+
 		Jinn.scope('__store', {
 			'get': function (key){
-				return store ? store.getItem(key) : o[key];
+				return storage ? storage.getItem(key) : obj[key];
 			},
 
 			'set': function (key, val){
-				store ? store.setItem(key, val) : o[key] = val;
+				storage ? storage.setItem(key, val) : obj[key] = val;
 			},
 
 			'remove': function (key){
-				delete o[key];
-				if( store ) store.removeItem(key);
+				delete obj[key];
+				if( storage ) storage.removeItem(key);
 			}
 		});
-	})(window.localStorage, {});
+	})();
 
 
 
