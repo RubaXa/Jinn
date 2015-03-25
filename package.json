@@ -1,0 +1,9 @@
+{
+	"name": "jinn",
+	"description": "Notifications center.",
+	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/RubaXa/Jinn.git"
+	}
+}
